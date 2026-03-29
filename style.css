@@ -1,0 +1,123 @@
+/* --- RESET E VARIABILI GLOBALI --- */
+:root {
+    --primary-color: #0f172a;    /* Blu scuro/ardesia per i testi principali */
+    --accent-color: #3b82f6;     /* Blu acceso per i dettagli */
+    --bg-color: #f8fafc;         /* Sfondo pagina grigio chiarissimo */
+    --card-bg: #ffffff;          /* Sfondo bianco per la tabella */
+    --text-muted: #64748b;       /* Grigio per testi secondari */
+    --border-color: #e2e8f0;     /* Colore bordi leggeri */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--primary-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    
+    /* --- NUOVO SFONDO --- */
+    /* Sovrappone un gradiente nero semi-trasparente (al 50%) all'immagine */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('sfondo.jpg'); /* Inserisci qui il nome esatto del tuo file */
+    background-size: cover;              /* Fa in modo che l'immagine copra tutto lo schermo */
+    background-position: center center;  /* Centra l'immagine */
+    background-attachment: fixed;        /* L'immagine resta ferma anche se scorri la pagina in giù */
+    background-repeat: no-repeat;        /* Evita che l'immagine si ripeta a mosaico */
+}
+
+/* --- INTESTAZIONE --- */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombra per staccare il testo dallo sfondo */
+}
+
+header p {
+    color: #f8fafc;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombra anche qui */
+}
+
+/* --- CONTENITORE E TABELLA --- */
+main {
+    width: 100%;
+    max-width: 600px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden; /* Mantiene i bordi arrotondati anche con la tabella dentro */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Rimuove il bordo inferiore dall'ultima riga */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Effetto interattivo al passaggio del mouse */
+tr:hover td {
+    background-color: #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+/* --- GESTIONE CARICAMENTO --- */
+#loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* --- ADATTAMENTO PER SMARTPHONE (RESPONSIVE) --- */
+@media (max-width: 480px) {
+    body {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    th, td {
+        padding: 1rem;
+    }
+}
